@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MPSProject">
+    <projectModules>
+      <modulePath path="$PROJECT_DIR$/languages/org.walter.common.ui/org.walter.common.ui.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/org.walter.common.ui/runtime/org.walter.common.ui.runtime.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/org.walter.common.ui/sandbox/org.walter.common.ui.sandbox.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/org.walter.sample.checkbox/org.walter.sample.checkbox.mpl" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/org.walter.common.ui.build/org.walter.common.ui.build.msd" folder="" />
+    </projectModules>
+  </component>
+</project>
