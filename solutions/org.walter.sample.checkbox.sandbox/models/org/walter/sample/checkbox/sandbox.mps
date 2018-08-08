@@ -40,7 +40,7 @@
       <property role="1ssKJL" value="false" />
     </node>
     <node concept="1ssRJ6" id="2ffdjtZJ8ui" role="1ssPar">
-      <property role="1ssRJ2" value="false" />
+      <property role="1ssRJ2" value="true" />
     </node>
     <node concept="2wuTLl" id="TJ8riI5noI" role="2wuZzV">
       <property role="2wuTLu" value="vertical" />

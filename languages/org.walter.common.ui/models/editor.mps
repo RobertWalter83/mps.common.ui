@@ -2,7 +2,7 @@
 <model ref="r:e67b388b-1538-4b37-8d8c-63ceeee3eab3(org.walter.common.ui.editor)">
   <persistence version="9" />
   <languages>
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="1" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="11" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -110,7 +110,7 @@
             <ref role="1k5W1q" to="tpc5:hF4H1c8" resolve="property" />
           </node>
           <node concept="3F1sOY" id="7JQKKTfmD0V" role="3EZMnx">
-            <ref role="1NtTu8" to="jxo7:3ZqNA5Aj2vB" />
+            <ref role="1NtTu8" to="jxo7:3ZqNA5Aj2vB" resolve="initValueCondition" />
             <node concept="VPXOz" id="3e5avyfchc" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>
@@ -173,7 +173,7 @@
         <ref role="1k5W1q" to="tpc5:hF4yUZ8" resolve="header" />
       </node>
       <node concept="3F1sOY" id="68Hp2yPY7Z6" role="3EZMnx">
-        <ref role="1NtTu8" to="jxo7:68Hp2yPY7YX" />
+        <ref role="1NtTu8" to="jxo7:68Hp2yPY7YX" resolve="checkBoxText" />
       </node>
       <node concept="3F0ifn" id="3e5avyfpZ3" role="3EZMnx" />
       <node concept="3F0ifn" id="68Hp2yPXB60" role="3EZMnx">
@@ -199,7 +199,7 @@
             <ref role="1k5W1q" node="68Hp2yPXBoT" resolve="behavior" />
           </node>
           <node concept="3F1sOY" id="3WfnuVSBUdb" role="3EZMnx">
-            <ref role="1NtTu8" to="jxo7:3WfnuVSBU6K" />
+            <ref role="1NtTu8" to="jxo7:3WfnuVSBU6K" resolve="onSelected" />
             <node concept="VPXOz" id="68Hp2yPXD9W" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>
@@ -218,7 +218,7 @@
             <ref role="1k5W1q" node="68Hp2yPXBoT" resolve="behavior" />
           </node>
           <node concept="3F1sOY" id="3WfnuVSBUdU" role="3EZMnx">
-            <ref role="1NtTu8" to="jxo7:3WfnuVSBU6M" />
+            <ref role="1NtTu8" to="jxo7:3WfnuVSBU6M" resolve="onDeSelected" />
             <node concept="VPXOz" id="68Hp2yPXDbC" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>

@@ -6,9 +6,9 @@
     <use id="d7706f63-9be2-479c-a3da-ae92af1e64d5" name="jetbrains.mps.lang.generator.generationContext" version="0" />
     <use id="949fc831-6aef-4545-8859-ffa2eed47cbf" name="org.walter.common.ui" version="-1" />
     <use id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core" version="1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="4" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="1" />
-    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="2" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="6" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="11" />
+    <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="11" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -34,6 +34,10 @@
       <concept id="1161622981231" name="jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_editorContext" flags="nn" index="1Q80Hx" />
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1082485599095" name="jetbrains.mps.baseLanguage.structure.BlockStatement" flags="nn" index="9aQIb">
+        <child id="1082485599096" name="statements" index="9aQI4" />
+      </concept>
+      <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
       <concept id="1197027756228" name="jetbrains.mps.baseLanguage.structure.DotExpression" flags="nn" index="2OqwBi">
         <child id="1197027771414" name="operand" index="2Oq$k0" />
         <child id="1197027833540" name="operation" index="2OqNvi" />
@@ -53,7 +57,6 @@
       <concept id="1070533707846" name="jetbrains.mps.baseLanguage.structure.StaticFieldReference" flags="nn" index="10M0yZ">
         <reference id="1144433057691" name="classifier" index="1PxDUh" />
       </concept>
-      <concept id="1070534058343" name="jetbrains.mps.baseLanguage.structure.NullLiteral" flags="nn" index="10Nm6u" />
       <concept id="1070534370425" name="jetbrains.mps.baseLanguage.structure.IntegerType" flags="in" index="10Oyi0" />
       <concept id="1070534644030" name="jetbrains.mps.baseLanguage.structure.BooleanType" flags="in" index="10P_77" />
       <concept id="1070534934090" name="jetbrains.mps.baseLanguage.structure.CastExpression" flags="nn" index="10QFUN">
@@ -156,10 +159,14 @@
       <concept id="1167951910403" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodesQuery" flags="in" index="3JmXsc" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI">
-        <reference id="1140138128738" name="concept" index="1PxNhF" />
-        <child id="1140138123956" name="leftExpression" index="1PxMeX" />
+      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
+        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
+      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
+        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
+        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
+      </concept>
+      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -262,19 +269,21 @@
                                       <node concept="2OqwBi" id="7JQKKTfkrZC" role="2Oq$k0">
                                         <node concept="2OqwBi" id="7JQKKTfkr$2" role="2Oq$k0">
                                           <node concept="1PxgMI" id="7JQKKTfkruF" role="2Oq$k0">
-                                            <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                            <node concept="30H73N" id="7JQKKTfkriW" role="1PxMeX" />
+                                            <node concept="30H73N" id="7JQKKTfkriW" role="1m5AlR" />
+                                            <node concept="chp4Y" id="1mMr7jGpWUh" role="3oSUPX">
+                                              <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                            </node>
                                           </node>
                                           <node concept="3TrEf2" id="7JQKKTfkrL4" role="2OqNvi">
-                                            <ref role="3Tt5mk" to="jxo7:3WfnuVSBU6K" />
+                                            <ref role="3Tt5mk" to="jxo7:3WfnuVSBU6K" resolve="onSelected" />
                                           </node>
                                         </node>
                                         <node concept="3TrEf2" id="7JQKKTfkslL" role="2OqNvi">
-                                          <ref role="3Tt5mk" to="tpee:gyVODHa" />
+                                          <ref role="3Tt5mk" to="tpee:gyVODHa" resolve="body" />
                                         </node>
                                       </node>
                                       <node concept="3Tsc0h" id="7JQKKTfksWV" role="2OqNvi">
-                                        <ref role="3TtcxE" to="tpee:fzcqZ_x" />
+                                        <ref role="3TtcxE" to="tpee:fzcqZ_x" resolve="statement" />
                                       </node>
                                     </node>
                                   </node>
@@ -351,19 +360,21 @@
                                       <node concept="2OqwBi" id="7JQKKTfkvT$" role="2Oq$k0">
                                         <node concept="2OqwBi" id="7JQKKTfkvwP" role="2Oq$k0">
                                           <node concept="1PxgMI" id="7JQKKTfkvru" role="2Oq$k0">
-                                            <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                            <node concept="30H73N" id="7JQKKTfkvjO" role="1PxMeX" />
+                                            <node concept="30H73N" id="7JQKKTfkvjO" role="1m5AlR" />
+                                            <node concept="chp4Y" id="1mMr7jGpWUp" role="3oSUPX">
+                                              <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                            </node>
                                           </node>
                                           <node concept="3TrEf2" id="7JQKKTfkvHR" role="2OqNvi">
-                                            <ref role="3Tt5mk" to="jxo7:3WfnuVSBU6M" />
+                                            <ref role="3Tt5mk" to="jxo7:3WfnuVSBU6M" resolve="onDeSelected" />
                                           </node>
                                         </node>
                                         <node concept="3TrEf2" id="7JQKKTfkw5v" role="2OqNvi">
-                                          <ref role="3Tt5mk" to="tpee:gyVODHa" />
+                                          <ref role="3Tt5mk" to="tpee:gyVODHa" resolve="body" />
                                         </node>
                                       </node>
                                       <node concept="3Tsc0h" id="7JQKKTfkwGD" role="2OqNvi">
-                                        <ref role="3TtcxE" to="tpee:fzcqZ_x" />
+                                        <ref role="3TtcxE" to="tpee:fzcqZ_x" resolve="statement" />
                                       </node>
                                     </node>
                                   </node>
@@ -394,6 +405,7 @@
                       <ref role="1Y3XeK" to="h50i:3e5avyeysC" resolve="CheckBoxPropertiesProvider" />
                       <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
                       <node concept="3Tm1VV" id="3e5avye$Ha" role="1B3o_S" />
+                      <node concept="2tJIrI" id="1mMr7jGqkrp" role="jymVt" />
                       <node concept="3clFb_" id="3e5avye$Hb" role="jymVt">
                         <property role="1EzhhJ" value="false" />
                         <property role="2aFKle" value="false" />
@@ -401,35 +413,37 @@
                         <node concept="3Tm1VV" id="3e5avye$Hd" role="1B3o_S" />
                         <node concept="10P_77" id="3e5avye$He" role="3clF45" />
                         <node concept="3clFbS" id="3e5avye$Hf" role="3clF47">
-                          <node concept="2b32R4" id="3e5avye_8J" role="lGtFl">
-                            <node concept="3JmXsc" id="3e5avye_8L" role="2P8S$">
-                              <node concept="3clFbS" id="3e5avye_8N" role="2VODD2">
-                                <node concept="3clFbF" id="3e5avye_am" role="3cqZAp">
-                                  <node concept="2OqwBi" id="3e5avyeAg2" role="3clFbG">
-                                    <node concept="2OqwBi" id="3e5avye_MO" role="2Oq$k0">
-                                      <node concept="2OqwBi" id="3e5avye_pG" role="2Oq$k0">
-                                        <node concept="1PxgMI" id="3e5avye_jQ" role="2Oq$k0">
-                                          <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                          <node concept="30H73N" id="3e5avye_al" role="1PxMeX" />
+                          <node concept="9aQIb" id="1mMr7jGqpNZ" role="3cqZAp">
+                            <node concept="3clFbS" id="1mMr7jGqpO0" role="9aQI4" />
+                            <node concept="2b32R4" id="1mMr7jGqzUx" role="lGtFl">
+                              <node concept="3JmXsc" id="1mMr7jGqzUz" role="2P8S$">
+                                <node concept="3clFbS" id="1mMr7jGqzU_" role="2VODD2">
+                                  <node concept="3clFbF" id="3e5avye_am" role="3cqZAp">
+                                    <node concept="2OqwBi" id="3e5avyeAg2" role="3clFbG">
+                                      <node concept="2OqwBi" id="3e5avye_MO" role="2Oq$k0">
+                                        <node concept="2OqwBi" id="3e5avye_pG" role="2Oq$k0">
+                                          <node concept="1PxgMI" id="3e5avye_jQ" role="2Oq$k0">
+                                            <node concept="30H73N" id="3e5avye_al" role="1m5AlR" />
+                                            <node concept="chp4Y" id="1mMr7jGpWUj" role="3oSUPX">
+                                              <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                            </node>
+                                          </node>
+                                          <node concept="3TrEf2" id="3e5avye_Bf" role="2OqNvi">
+                                            <ref role="3Tt5mk" to="jxo7:3ZqNA5Aj2vB" resolve="initValueCondition" />
+                                          </node>
                                         </node>
-                                        <node concept="3TrEf2" id="3e5avye_Bf" role="2OqNvi">
-                                          <ref role="3Tt5mk" to="jxo7:3ZqNA5Aj2vB" />
+                                        <node concept="3TrEf2" id="3e5avye_ZU" role="2OqNvi">
+                                          <ref role="3Tt5mk" to="tpee:gyVODHa" resolve="body" />
                                         </node>
                                       </node>
-                                      <node concept="3TrEf2" id="3e5avye_ZU" role="2OqNvi">
-                                        <ref role="3Tt5mk" to="tpee:gyVODHa" />
+                                      <node concept="3Tsc0h" id="3e5avyeAs$" role="2OqNvi">
+                                        <ref role="3TtcxE" to="tpee:fzcqZ_x" resolve="statement" />
                                       </node>
-                                    </node>
-                                    <node concept="3Tsc0h" id="3e5avyeAs$" role="2OqNvi">
-                                      <ref role="3TtcxE" to="tpee:fzcqZ_x" />
                                     </node>
                                   </node>
                                 </node>
                               </node>
                             </node>
-                          </node>
-                          <node concept="3cpWs6" id="3e5avyeAN6" role="3cqZAp">
-                            <node concept="10Nm6u" id="3e5avyeAZV" role="3cqZAk" />
                           </node>
                         </node>
                       </node>
@@ -450,8 +464,10 @@
                                     <node concept="3clFbF" id="3e5avyeKnp" role="3cqZAp">
                                       <node concept="2OqwBi" id="3e5avyeKHf" role="3clFbG">
                                         <node concept="1PxgMI" id="3e5avyeKBG" role="2Oq$k0">
-                                          <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                          <node concept="30H73N" id="3e5avyeKno" role="1PxMeX" />
+                                          <node concept="30H73N" id="3e5avyeKno" role="1m5AlR" />
+                                          <node concept="chp4Y" id="1mMr7jGpWUn" role="3oSUPX">
+                                            <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                          </node>
                                         </node>
                                         <node concept="3TrcHB" id="3e5avyeKUK" role="2OqNvi">
                                           <ref role="3TsBF5" to="jxo7:3e5avye4t4" resolve="opaque" />
@@ -484,11 +500,13 @@
                                       <node concept="2OqwBi" id="68Hp2yPYlPU" role="3clFbG">
                                         <node concept="2OqwBi" id="68Hp2yPYluU" role="2Oq$k0">
                                           <node concept="1PxgMI" id="68Hp2yPYlpk" role="2Oq$k0">
-                                            <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                            <node concept="30H73N" id="68Hp2yPYlnq" role="1PxMeX" />
+                                            <node concept="30H73N" id="68Hp2yPYlnq" role="1m5AlR" />
+                                            <node concept="chp4Y" id="1mMr7jGpWUk" role="3oSUPX">
+                                              <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                            </node>
                                           </node>
                                           <node concept="3TrEf2" id="68Hp2yPYlGo" role="2OqNvi">
-                                            <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" />
+                                            <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" resolve="checkBoxText" />
                                           </node>
                                         </node>
                                         <node concept="3TrcHB" id="68Hp2yPYlVr" role="2OqNvi">
@@ -524,11 +542,13 @@
                                       <node concept="2OqwBi" id="68Hp2yPYnQZ" role="3clFbG">
                                         <node concept="2OqwBi" id="68Hp2yPYnsV" role="2Oq$k0">
                                           <node concept="1PxgMI" id="68Hp2yPYnmo" role="2Oq$k0">
-                                            <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                            <node concept="30H73N" id="68Hp2yPYnin" role="1PxMeX" />
+                                            <node concept="30H73N" id="68Hp2yPYnin" role="1m5AlR" />
+                                            <node concept="chp4Y" id="1mMr7jGpWUo" role="3oSUPX">
+                                              <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                            </node>
                                           </node>
                                           <node concept="3TrEf2" id="68Hp2yPYnFV" role="2OqNvi">
-                                            <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" />
+                                            <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" resolve="checkBoxText" />
                                           </node>
                                         </node>
                                         <node concept="3TrcHB" id="68Hp2yPYo0O" role="2OqNvi">
@@ -567,11 +587,13 @@
                                           <node concept="2OqwBi" id="7WcJHOe1xS" role="3clFbG">
                                             <node concept="2OqwBi" id="7WcJHOe1cq" role="2Oq$k0">
                                               <node concept="1PxgMI" id="7WcJHOe17j" role="2Oq$k0">
-                                                <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                                <node concept="30H73N" id="7WcJHOe15s" role="1PxMeX" />
+                                                <node concept="30H73N" id="7WcJHOe15s" role="1m5AlR" />
+                                                <node concept="chp4Y" id="1mMr7jGpWUl" role="3oSUPX">
+                                                  <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                                </node>
                                               </node>
                                               <node concept="3TrEf2" id="7WcJHOe1pq" role="2OqNvi">
-                                                <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" />
+                                                <ref role="3Tt5mk" to="jxo7:68Hp2yPY7YX" resolve="checkBoxText" />
                                               </node>
                                             </node>
                                             <node concept="3TrcHB" id="7WcJHOe1D7" role="2OqNvi">
@@ -617,8 +639,10 @@
                                     <node concept="3cpWs6" id="3u1NdXph$JK" role="3cqZAp">
                                       <node concept="2OqwBi" id="3u1NdXph$ZE" role="3cqZAk">
                                         <node concept="1PxgMI" id="3u1NdXph$SX" role="2Oq$k0">
-                                          <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                                          <node concept="30H73N" id="3u1NdXph$Qj" role="1PxMeX" />
+                                          <node concept="30H73N" id="3u1NdXph$Qj" role="1m5AlR" />
+                                          <node concept="chp4Y" id="1mMr7jGpWUm" role="3oSUPX">
+                                            <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                                          </node>
                                         </node>
                                         <node concept="3TrcHB" id="3u1NdXph_eK" role="2OqNvi">
                                           <ref role="3TsBF5" to="jxo7:3u1NdXphgAt" resolve="style" />
@@ -654,8 +678,10 @@
                         <node concept="3clFbF" id="7JQKKTfkwO5" role="3cqZAp">
                           <node concept="2OqwBi" id="7JQKKTfkx9o" role="3clFbG">
                             <node concept="1PxgMI" id="7JQKKTfkwVk" role="2Oq$k0">
-                              <ref role="1PxNhF" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
-                              <node concept="30H73N" id="7JQKKTfkwO4" role="1PxMeX" />
+                              <node concept="30H73N" id="7JQKKTfkwO4" role="1m5AlR" />
+                              <node concept="chp4Y" id="1mMr7jGpWUi" role="3oSUPX">
+                                <ref role="cht4Q" to="jxo7:3WfnuVSBU5M" resolve="CheckBox" />
+                              </node>
                             </node>
                             <node concept="3TrcHB" id="7JQKKTfkxqL" role="2OqNvi">
                               <ref role="3TsBF5" to="jxo7:3WfnuVSBU6B" resolve="identifier" />
